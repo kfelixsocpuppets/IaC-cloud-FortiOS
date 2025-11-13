@@ -130,9 +130,5 @@ A few ideals to think about
 <!-- end_slide -->
 
 
-  terraform show
-  /* the below imports policyid#9
-  terraform import fortios_firewall_policy.trname3 9
-  terraform show
 
-<!-- end_slide -->
+
