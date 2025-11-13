@@ -1,6 +1,7 @@
 # Fortios IaC
 
-A comprehensive guide for setting up a fortigate and examples to work with 
+A comprehensive guide for setting up a fortigate and with working examples  
+
 ## Table of Contents
 - [Overview](#overview)
 - Install Terraform
@@ -10,3 +11,5 @@ A comprehensive guide for setting up a fortigate and examples to work with
  
  
 **Note**: Ensure API-key are stored secretly 
+
+**References**: Supportive Information
