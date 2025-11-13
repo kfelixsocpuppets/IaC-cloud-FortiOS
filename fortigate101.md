@@ -116,6 +116,10 @@ A few ideals to think about
 * Never provide or re-use the same API-key
 * For enhanced security, Api-key should be encrypted and vaulted
 * Always apply a trusthost and specify your Terraform Iac server
-
+* define the resource and use the import and show to import an existing object into your state
+  terraform show
+  # the below imports policyid#9
+  terraform import fortios_firewall_policy.trname3 9
+  terraform show
 
 <!-- end_slide -->
