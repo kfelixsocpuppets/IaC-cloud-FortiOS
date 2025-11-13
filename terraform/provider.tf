@@ -8,7 +8,7 @@ terraform {
 
 
 
-# Configure the FortiOS Provider
+# Configure the FortiOS Provider Histname and Token are variables
 provider "fortios" {
 hostname = var.hostname_value 
 token =  var.token
