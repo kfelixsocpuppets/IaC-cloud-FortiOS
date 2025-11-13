@@ -117,6 +117,19 @@ A few ideals to think about
 * For enhanced security, Api-key should be encrypted and vaulted
 * Always apply a trusthost and specify your Terraform Iac server
 * define the resource and use the import and show to import an existing object into your state
+
+  ```bash
+ 
+ terraform show
+  /* the below imports policyid#9
+  terraform import fortios_firewall_policy.trname3 9
+  terraform show
+
+```
+
+<!-- end_slide -->
+
+
   terraform show
   /* the below imports policyid#9
   terraform import fortios_firewall_policy.trname3 9
