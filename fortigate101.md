@@ -121,6 +121,7 @@ A few ideals to think about
  ![](/Users/smaniak/Documents/Projects/fortigate-terraform-101/logo.png)
 
 ```bash
+ # this will import policyid 9
 terraform show
 terraform import fortios_firewall_policy.trname3 9
 terraform show
