@@ -1,0 +1,157 @@
+runtime: yaml
+
+
+
+config:
+
+  fortios:cabundlefile:
+
+    value: /etc/ssl/certs/firewall.crt
+
+  fortios:hostname:
+
+    value: xxx.xxx.xxx.xxx 
+
+  fortios:insecure:
+
+    value: true 
+
+  fortios:token:
+
+    value: thsNr5qt6dgj7Nfh3Ggynq6z1NGpzn 
+
+
+
+resources:
+
+  # Create provider instance
+
+  fortios-provider:
+
+    type: pulumi:providers:fortios
+
+    properties:
+
+      cabundlefile: ${fortios:cabundlefile}
+
+      hostname: ${fortios:hostname}
+
+      insecure: ${fortios:insecure}
+
+      token: ${fortios:token}
+
+ # Create a Static Route Item
+
+  route1:
+
+    type: fortios:networking:RouteStatic
+
+    properties:
+
+      dst: 10.13.2.14/32
+
+      gateway: 192.168.111.111
+
+      device: lan5
+
+    options:
+
+      provider: ${fortios-provider}
+
+
+
+# Create a Static Route Item
+
+  route2:
+
+    type: fortios:networking:RouteStatic
+
+    properties:
+
+      dst: 10.32.2.12/32
+
+      gateway: 192.168.111.111
+
+      device: lan5
+
+    options:
+
+      provider: ${fortios-provider}
+
+      
+
+  trname1:
+
+    type: fortios:firewall:Address
+
+    properties:
+
+      name: ken01111
+
+      allowRouting: disable
+
+      subnet: 12.1.1.0 255.255.255.0
+
+      type: ipmask
+
+      visibility: enable
+
+
+
+  trname2:   
+
+    type: fortios:firewall:Address
+
+    properties:
+
+      name: ken01112
+
+      allowRouting: disable
+
+      subnet: 12.2.1.0 255.255.255.0
+
+      type: ipmask
+
+      visibility: enable
+
+
+
+  trname3:   
+
+    type: fortios:firewall:Address
+
+    properties:
+
+      name: ken01113
+
+      allowRouting: disable
+
+      subnet: 13.2.1.0 255.255.255.0
+
+      type: ipmask
+
+      visibility: enable
+
+
+  trname:
+
+    type: fortios:firewall:Addrgrp
+
+    properties:
+
+      allowRouting: disable
+
+      name: BLOCKITNOW
+
+      comment: my_block_list
+
+      visibility: enable
+
+      members:
+
+        - name: ${trname1.name}
+
+        - name: ${trname2.name}
+
+        - name: ${trname3.name} 
+
