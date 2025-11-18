@@ -9,10 +9,9 @@ resource "fortios_router_bgp" "AS5706" {
     name   = "connected"
     status = "enable"
   }
-  redistribute {
-    name   = "rip"
-    status = "disable"
-  }
+# redistribute static/ospf/connected
+
+ 
   redistribute {
     name   = "ospf"
     status = "enable"
