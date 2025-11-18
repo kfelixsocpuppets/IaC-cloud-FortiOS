@@ -1,6 +1,6 @@
 resource "fortios_router_bgp" "AS5706" {
-  #as                                 = "5706"
-  as_string  = 5709
+  # set  the AS#
+  as_string  = 5706
   holdtime_timer                     = 90
   keepalive_timer                    = 45 
   log_neighbour_changes              = "enable"
