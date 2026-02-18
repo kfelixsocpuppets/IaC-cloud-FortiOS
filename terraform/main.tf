@@ -1,12 +1,12 @@
 # dummy address for holding DO NOT REMOVE  THIS ADDRESS IS POPULATE IN ADDRGRP as seed
 
-resource "fortios_firewall_address" "Adumbaddress" {
+resource "fortios_firewall_address" "dummy" {
 
-  name   = "Adumbaaddress"
+  name   = "dummy"
   
-  subnet = "169.254.68.66/32"
+  subnet = "169.254.255.255/32"
   
-  comment = " Managed by TERRAFORMS BLOGGER ${local.current_date} DEMO "
+  comment = " DO NOT DELETE ME "
   
 
 }
@@ -81,3 +81,4 @@ resource "fortios_firewall_address" "Bdumbaddress98" {
   comment = " Managed by TERRAFORMS BLOGGER ${local.current_date} DEMO "
 
 }
+
