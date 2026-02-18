@@ -9,8 +9,11 @@ resource "null_resource" "timestamp_create" {
 }
 
 
+# prod webservers located in the WEST region
+#
+#
 locals {
-  address_name = "web-server-prod"
+  address_name = "web-prod-west"
 }
 
 
