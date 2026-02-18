@@ -1,3 +1,7 @@
+# sample code were address are added to a group based on tag, this would be similar to palo DAG but controlled via terraform tags
+#
+# address groups would be used in the appropriate rules
+
 resource "null_resource" "timestamp_create" {
   triggers = {
     address_name = local.address_name
