@@ -12,6 +12,31 @@ resource "fortios_firewall_address" "DUMMY" {
 
 }
 
+
+#
+
+locals {
+  addresses = {
+    "HomeNetwork"     = { subnet = "192.168.1.0 255.255.255.0",   comment = "HQ TERRAFORM ${local.current_date} " }
+    "Branch1_Network" = { subnet = "10.1.0.0 255.255.255.0",  comment = "Branch 1" }
+    "Branch2_Network" = { subnet = "10.2.0.0 255.255.255.0",  comment = "Branch 2" }
+    "Branch3_Network" = { subnet = "10.3.0.0 255.255.255.0",  comment = "Branch 3" }
+    "Branch4_Network" = { subnet = "10.4.0.0 255.255.255.0",  comment = "Branch 4" }
+    "Branch5_Network" = { subnet = "10.5.0.0 255.255.255.0",  comment = "Branch 5" }
+  }
+}
+
+resource "fortios_firewall_address" "multi" {
+  for_each = local.addresses
+
+  name    = each.key
+  type    = "ipmask"
+  subnet  = each.value.subnet
+  comment = each.value.comment
+}
+
+#----------------------------
+
 resource "fortios_firewall_address" "Bdumbaddress2" {
 
   name   = "Bdumbaaddress2"
@@ -86,22 +111,3 @@ resource "fortios_firewall_address" "Bdumbaddress98" {
 
 #
 
-locals {
-  addresses = {
-    "HomeNetwork"     = { subnet = "192.168.1.0 255.255.255.0",   comment = "HQ TERRAFORM ${local.current_date} " }
-    "Branch1_Network" = { subnet = "10.1.0.0 255.255.255.0",  comment = "Branch 1" }
-    "Branch2_Network" = { subnet = "10.2.0.0 255.255.255.0",  comment = "Branch 2" }
-    "Branch3_Network" = { subnet = "10.3.0.0 255.255.255.0",  comment = "Branch 3" }
-    "Branch4_Network" = { subnet = "10.4.0.0 255.255.255.0",  comment = "Branch 4" }
-    "Branch5_Network" = { subnet = "10.5.0.0 255.255.255.0",  comment = "Branch 5" }
-  }
-}
-
-resource "fortios_firewall_address" "multi" {
-  for_each = local.addresses
-
-  name    = each.key
-  type    = "ipmask"
-  subnet  = each.value.subnet
-  comment = each.value.comment
-}
