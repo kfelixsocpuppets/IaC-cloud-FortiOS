@@ -1,4 +1,6 @@
-#sample s3 backend using DigitalOcean Spaces
+#sample s3 backend using DigitalOcean Spaces, but other S# like storage buckets would look the same, make sure to pass access/secret keys in lcol variable or env
+#
+# do not pass access token in code version control
 
 terraform {
 
